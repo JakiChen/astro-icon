@@ -37,8 +37,9 @@ function optimizeSvg(
       "cleanupAttrs",
       "minifyStyles",
       "convertStyleToAttrs",
+      "cleanupIds",
       {
-        name: "cleanupIDs",
+        name: "prefixIds",
         params: { prefix: `${SPRITESHEET_NAMESPACE}:${name}` },
       },
       "removeRasterImages",
@@ -179,8 +180,8 @@ export default async function load(
       throw new Error(
         `Unable to process "<Icon pack="${pack}" name="${name}" />" because an SVG string was not returned!
 
-Recieved the following content:
-${contents}`
+        Recieved the following content:
+        ${contents}`
       );
     }
     svg = contents;
@@ -199,8 +200,8 @@ ${contents}`
         throw new Error(
           `Unable to process "${filepath}" because it is not an SVG!
 
-Recieved the following content:
-${contents}`
+          Recieved the following content:
+          ${contents}`
         );
       }
       svg = contents;
